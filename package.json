@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
+    "pinia": "^2.0.28",
     "pinia-plugin-persistedstate": "^3.0.1",
     "roboto-fontface": "*",
     "vite-plugin-pwa": "^0.14.0",
@@ -19,12 +20,11 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",
     "@vue/eslint-config-standard": "^8.0.1",
-    "eslint": "^8.29.0",
+    "eslint": "^8.31.0",
     "eslint-plugin-vue": "^9.8.0",
     "eslint-plugin-vue-pug": "^0.5.5",
-    "pinia": "^2.0.28",
     "pug": "^3.0.2",
-    "sass": "^1.56.2",
+    "sass": "^1.57.1",
     "vite": "^3.1.9",
     "vite-plugin-radar": "^0.6.0",
     "vite-plugin-vuetify": "^1.0.0-alpha.12"

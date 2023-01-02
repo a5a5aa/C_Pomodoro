@@ -1,16 +1,14 @@
-// 放保存的資料
 import { defineStore } from 'pinia'
 
-// 變數名稱建議取use開頭 Store 結尾
 export const useSettingsStore = defineStore({
-  // 設定欲保存的資料一組ID
+  // 這個 store 的 id
   id: 'settings',
-  // 這個 store 保存那些資料
+  // 這個 store 存了哪些資料
   state () {
     return {
       alarms: [
-        { id: 1, name: 'Alarm', file: new URL('@/assets/alarm.mp3', import.meta.url).href },
-        { id: 2, name: 'Yay', file: new URL('@/assets/yay.mp3', import.meta.url).href }
+        { id: 1, name: 'nifty', file: new URL('@/assets/nifty.mp3', import.meta.url).href },
+        { id: 2, name: 'R', file: new URL('@/assets/女聲啊.mp3', import.meta.url).href }
       ],
       selectedAlarms: 2,
       notify: false
@@ -19,7 +17,6 @@ export const useSettingsStore = defineStore({
   actions: {
     async toggleNotify () {
       if (!this.notify && 'Notification' in window) {
-        // permission 請求到權限的結果
         const permission = await Notification.requestPermission()
         if (permission === 'granted') {
           this.notify = true
@@ -35,10 +32,8 @@ export const useSettingsStore = defineStore({
       return this.alarms[i].file
     }
   },
-  // locostorage 的保存設定
   persist: {
     key: 'pomodoro-settings',
-    // 要存哪些資料
     paths: ['selectedAlarms', 'notify']
   }
 })

@@ -6,9 +6,9 @@
 
 // Plugins
 import { loadFonts } from './webfontloader'
-import vuetify from '@/plugins/vuetify'
-import router from '@/plugins/router'
-import pinia from '@/plugins/pinia'
+import vuetify from './vuetify'
+import router from './router'
+import pinia from './pinia'
 
 export function registerPlugins (app) {
   loadFonts()

@@ -1,12 +1,12 @@
 <template lang="pug">
 v-row#list
   v-col(cols="12")
-    h1.text-center 待辦事項
+    h1.text-center.text-shadow 待辦事項
   v-col(cols="12")
-    v-text-field(ref="input" v-model="newItem" label="新增事項" :rules="[rules.required, rules.length]" @keydown.enter="onInputSubmit")
-      template(#append )
-        v-btn(icon="mdi-plus" varient="text" @click="onInputSubmit" )
-    v-table
+    v-text-field.inputtext.rounded-lg(ref="input" v-model="newItem" label="新增事項" :rules="[rules.required, rules.length]" @keydown.enter="onInputSubmit")
+      template(#append)
+        v-btn.btn-add.text-white(icon="mdi-plus" variant="text" @click="onInputSubmit")
+    v-table.todolist.rounded-lg
       thead
         tr
           th 名稱
@@ -14,7 +14,7 @@ v-row#list
       tbody
         tr(v-if="items.length === 0")
           td.text-center(colspan="2") 沒有事項
-        tr(v-for="item in items" :key="item.id" ref="editInputs")
+        tr(v-for="item in items" v-else :key="item.id" ref="editInputs")
           td
             v-text-field(v-if="item.edit" v-model="item.model" autofocus :rules="[rules.required, rules.length]")
             span(v-else) {{ item.name }}
@@ -27,9 +27,9 @@ v-row#list
               v-btn(icon="mdi-delete" variant="text" color="red" @click="delItem(item.id)")
   v-divider
   v-col(cols="12")
-    h1.text-center 已完成事項
+    h1.text-center.text-shadow 已完成事項
   v-col(cols="12")
-    v-table
+    v-table.rounded-lg
       thead
         tr
           th 名稱
@@ -58,7 +58,6 @@ const editInputs = ref([])
 
 const rules = {
   required (v) {
-    // 如果結果是 false 會回傳 '欄位必填'
     return !!v || '欄位必填'
   },
   length (v) {
@@ -68,11 +67,9 @@ const rules = {
 
 const onInputSubmit = async () => {
   const valid = await input.value.validate()
-  // 如果驗證的長度>0，表示輸入有誤，如果<0 就可以新增 item
+  console.log(valid)
   if (valid.length > 0) return
   addItem(newItem.value)
-  // $el 可以抓到元件 HTML 元素
-  // ↓讓新增後，不讓輸入框產生錯誤，抓到這個HTML元素的 input 標籤，並取消focus(.blur())
   input.value.$el.querySelector('input').blur()
   input.value.reset()
 }

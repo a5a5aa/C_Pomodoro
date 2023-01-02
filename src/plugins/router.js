@@ -9,7 +9,7 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: {
-        title: '番茄鐘'
+        title: 'POMODORO'
       }
     },
     {
@@ -17,7 +17,7 @@ const router = createRouter({
       name: 'settings',
       component: () => import('@/views/SettingsView.vue'),
       meta: {
-        title: '番茄鐘 | 設定'
+        title: 'POMODORO - settings'
       }
     },
     {
@@ -25,10 +25,14 @@ const router = createRouter({
       name: 'list',
       component: () => import('@/views/ListView.vue'),
       meta: {
-        title: '番茄鐘 | 清單'
+        title: 'POMODORO - list'
       }
     }
   ]
+})
+
+router.afterEach((to, from) => {
+  document.title = to.meta.title
 })
 
 export default router
