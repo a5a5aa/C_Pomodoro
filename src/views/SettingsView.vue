@@ -3,7 +3,7 @@ v-row#settings
   v-col(cols="12")
     h1.text-center.text-shadow 設定
   v-col(cols="12")
-    v-table
+    v-table.rounded-lg
       thead
         tr
           th 名稱
