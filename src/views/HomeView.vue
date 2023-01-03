@@ -11,8 +11,8 @@ v-row#home
     v-btn.btn-skip(v-if="currentItem.length > 0" icon="mdi-skip-next" variant="text" @click="finishTimer")
 </template>
 
-#home
 #title
+#home
 <script setup>
 import { ref, computed } from 'vue'
 import { useListStore } from '@/stores/list'

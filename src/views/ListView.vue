@@ -5,7 +5,7 @@ v-row#list
   v-col(cols="12")
     v-text-field.inputtext.rounded-lg(ref="input" v-model="newItem" label="新增事項" :rules="[rules.required, rules.length]" @keydown.enter="onInputSubmit")
       template(#append)
-        v-btn.btn-add.text-white(icon="mdi-plus" variant="text" @click="onInputSubmit")
+        v-btn.btn-add.text-shadow(icon="mdi-plus" variant="text" @click="onInputSubmit")
     v-table.todolist.rounded-lg
       thead
         tr

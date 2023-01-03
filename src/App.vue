@@ -1,7 +1,7 @@
 <template lang="pug">
 v-app
   v-app-bar(color="rgba(0,0,0,.1)")
-    v-app-bar-title#pomo.text-white P O M O D O R O
+    v-app-bar-title#pomo-title.text-white P O M O D O R O
     v-spacer
     v-btn.text-white(icon="mdi-home" variant="text" to="/")
     v-btn.text-white(icon="mdi-format-list-bulleted" variant="text" to="/list")
